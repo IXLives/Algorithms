@@ -4,22 +4,16 @@ import math
 
 
 def recipe_batches(recipe, ingredients):
-    portions = 0
-    prevPortion = 0
-    portionLowest = 0
+    portionLowest = 9000
     for key in recipe:
-        prevPortion = portions
         if key in ingredients:
-            portions = ingredients[key] // recipe[key]
-            if portions < portionLowest:
-                portionLowest = portions
-                return portionLowest
-            if portions == 0:
-                return('Zero')
-            else:
-                return portions
+            if (ingredients[key] // recipe[key]) < portionLowest:
+                portionLowest = ingredients[key] // recipe[key]
+            elif ingredients[key] // recipe[key] == 0:
+                portionLowest = 0
         else:
-            return('Zero')
+            portionLowest = 0
+    return portionLowest
 
 
 if __name__ == '__main__':
