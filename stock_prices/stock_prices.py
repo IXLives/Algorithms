@@ -4,9 +4,9 @@ import argparse
 
 
 def find_max_profit(prices):
-    maxprofit = 0
+    maxprofit = -100
     current_price = prices[0]
-    current_profit = 0
+    current_profit = -100
     lowest_price = prices[0]
 
     for i in range(1, len(prices) - 1):
