@@ -7,12 +7,18 @@ import sys
 # recursive solution
 
 
+def count(i, n):
+    x = n // i
+    pass
+
+
 def eating_cookies(n, cache=None):
     total_steps = 0
     steps1 = 0
     steps2 = 0
     steps3 = 0
-
+    for i in range(1, 4):
+        count(i, n)
     pass
 
 
