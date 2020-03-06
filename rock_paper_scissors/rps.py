@@ -15,8 +15,20 @@ def memoize(function):
 
 def rock_paper_scissors(n):
     plays = ['rock', 'paper', 'scissors']
+    cache = []
     all_plays = []
-    pass
+
+    def find_plays(play, round_number, cache):
+        for i in range(0, len(plays)):
+            play.append(plays[i])
+            if round_number == n and play not in all_plays:
+                all_plays.extend(play)
+            else:
+                find_plays(play, round_number + 1, cache)
+
+    find_plays([], 1, cache)
+
+    return all_plays
 
 
 rock_paper_scissors = memoize(rock_paper_scissors)
